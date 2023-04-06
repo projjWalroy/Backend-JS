@@ -112,7 +112,62 @@ let id2 = setTimeout(function execute2() {
 }, 5000);
 
 
+function todo(task){
+    setTimeout(function fun(){
+        console.log("completed", todo);
+    },2000);
+}
+console.log("starting");
+/todo("assignment");
+console.log("Ending");
 
+So here setTimeout is executing after the code is finishing,
+so how it is accesing the task.
 
+This happens due to closure, closure is when a function "remembers" it's lexical scope even
+when the function is executed outside the lexical scope.
+
+every varible that passed into the function gets function scope
+
+"closure" is about "remoembering". from where the varible is coming
+
+function todo(task)
+{
+    console.log("Starting todo");
+    setTimeout(function fun(){
+        console.log("completed",task);
+
+    },5000);
+    task = "dayananda";
+    console.log("end of todo");
+}
+console.log("Starting");
+/todo("assignments");
+console.log("Ending");
+
+A closure in JavaScript is a feature where an inner function has access to the outer (enclosing) function's variables — a scope chain. Closures in Javascript are created along with the function. Lexical scoping is the environment that holds the variables of the current scope as well as the outer scope.
+
+A function remembers its lexical scoping that is called CLOSURE.
+ 
+
+ 
+
+function test() {
+    for(var i = 0; i < 3; i++) {  //var has function scope but let have block scope
+        setTimeout(function exec() {
+            console.log(`i : ${i}`); // 'i: ' + i
+        }, i*1000);
+    } 
+}
+
+test();
+
+var has function scope means for a for loop the the value of i changes for all.
+let has block scope means it does not changes it value for every block.
+
+const add = (function exec(){
+    let count = 0;
+    
+})
 
 */
